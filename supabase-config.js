@@ -1,5 +1,5 @@
 window.CULT_CONFIG = {
-  supabaseUrl: 'PASTE_SUPABASE_URL_HERE',
-  supabaseAnonKey: 'PASTE_SUPABASE_ANON_KEY_HERE',
+  supabaseUrl: 'https://rpufyrhjqgngwtecwzcc.supabase.co',
+  supabaseAnonKey: 'sb_publishable_lVAY-grX6mbUO-eq5TbbXw_HxhgkfbM',
   appName: 'CULT Group Knowledge System'
 };
