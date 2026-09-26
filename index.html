@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="CULT Group — внутренняя база знаний команды: контакты, контент, подарки и риски." />
+  <meta name="theme-color" content="#050807" />
+  <title>CULT Group // Knowledge System</title>
+  <link rel="icon" type="image/webp" href="assets/brand/favicon.webp" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="matrix-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <button class="brand" data-view="home" aria-label="На главную">
+      <img src="assets/brand/cult-logo.webp" alt="CULT Group" />
+      <div class="brand-meta"><strong>KNOWLEDGE SYSTEM</strong><span>INTERNAL // CG-01</span></div>
+    </button>
+
+    <div class="system-chip"><span class="pulse"></span> SYSTEM ONLINE</div>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <button class="nav-item active" data-view="home"><span class="nav-code">00</span><b>Главная</b></button>
+      <button class="nav-item" data-section="contacts"><span class="nav-code">01</span><b>Контакты</b></button>
+      <button class="nav-item" data-section="content"><span class="nav-code">02</span><b>Контент</b></button>
+      <button class="nav-item" data-section="money"><span class="nav-code">03</span><b>Подарки и риски</b></button>
+      <button class="nav-item" data-view="sources"><span class="nav-code">04</span><b>Исходники</b></button>
+      <button class="nav-item" data-view="admin"><span class="nav-code">05</span><b>Редактор базы</b></button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="keeper-mini" id="keeperOpen">
+        <img class="keeper-clean keeper-clean--mini" src="assets/brand/cult-keeper-clean.webp" alt="CULT Keeper" />
+        <span><strong>CULT KEEPER</strong><small>Быстрый помощник</small></span>
+        <i>›</i>
+      </button>
+      <div class="version"><span>CULT GROUP // INTERNAL</span><b>v0.9</b></div>
+    </div>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Меню">☰</button>
+      <div class="search-shell">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input id="globalSearch" type="search" autocomplete="off" placeholder="Поиск: номер, письмо, Telegram, подарок…" />
+          <kbd>/</kbd>
+        </div>
+        <div class="search-suggestions" id="searchSuggestions" hidden></div>
+      </div>
+      <div class="top-status" id="cloudStatus"><span></span><b>LOCAL</b></div>
+      <button class="command-btn" id="commandBtn" title="Командная палитра"><kbd>Ctrl</kbd><b>K</b></button>
+      <button class="favorites-btn" id="favoritesBtn" title="Избранное">☆ <span id="favCount">0</span></button>
+      <button class="account-btn" id="accountBtn" title="Аккаунт" hidden><span id="accountInitials">CG</span><b id="accountRole">VIEWER</b></button>
+    </header>
+
+    <section id="homeView" class="view active">
+      <div class="hero cyber-frame">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>●</span> CULT GROUP // INTERNAL KNOWLEDGE BASE</div>
+          <h1>Нужный ответ<br><em>за несколько секунд.</em></h1>
+          <p>Внутренняя база знаний команды: поиск по рабочим ситуациям, материалам и исходникам в одном интерфейсе.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" data-section="contacts"><span>ACCESS</span> Открыть базу</button>
+            <button class="secondary-btn" id="heroKeeper"><span>CG-AI</span> CULT Keeper</button>
+          </div>
+          <div class="hero-readout"><span id="heroCardCount">DATABASE: 16 CARDS</span><span>SOURCES: 28</span><span>SEARCH: ACTIVE</span></div>
+        </div>
+
+        <div class="keeper-stage" aria-label="CULT Keeper">
+          <div class="keeper-glow"></div>
+          <button class="keeper-hero-button" id="keeperHeroClick" aria-label="Открыть CULT Keeper">
+            <img class="keeper-clean keeper-clean--hero" src="assets/brand/cult-keeper-clean.webp" alt="Маскот CULT Group — CULT Keeper" />
+            <span class="keeper-tip">Нужна помощь? Нажми на меня</span>
+          </button>
+          <div class="keeper-caption">
+            <b>CULT KEEPER</b>
+            <span>Навигационный модуль</span>
+          </div>
+          <div class="hud-corner corner-a"></div><div class="hud-corner corner-b"></div>
+        </div>
+      </div>
+
+      <div class="goal-panel cyber-frame">
+        <div class="goal-panel-head"><div><span class="eyebrow">// FAST START</span><h2>Что тебе нужно сейчас?</h2></div><button id="goalCommand">Ctrl + K</button></div>
+        <div class="goal-grid" id="goalGrid">
+          <button data-goal="номер контакт"><span>01</span><b>Найти контакт</b><small>Номер, WhatsApp, Telegram</small></button>
+          <button data-goal="письмо"><span>02</span><b>Найти письмо</b><small>Идеи и форматы</small></button>
+          <button data-goal="контент песня фото видео"><span>03</span><b>Идея контента</b><small>Фото, видео, песня</small></button>
+          <button data-goal="правила риск обход"><span>04</span><b>Проверить правило</b><small>Риски и ограничения</small></button>
+          <button data-view-goal="sources"><span>05</span><b>Найти исходник</b><small>Открыть архив</small></button>
+        </div>
+      </div>
+
+      <div class="dashboard-row">
+        <section class="dashboard-panel">
+          <div class="mini-head"><div><span>// PINNED</span><h3>Часто используемое</h3></div><small>быстрый доступ</small></div>
+          <div class="compact-list" id="pinnedList"></div>
+        </section>
+        <section class="dashboard-panel">
+          <div class="mini-head"><div><span>// HISTORY</span><h3>Недавно открывали</h3></div><button id="clearRecent">очистить</button></div>
+          <div class="compact-list" id="recentList"></div>
+        </section>
+      </div>
+
+      <div class="section-head"><div><span class="eyebrow">// MAIN MODULES</span><h2>Выбери направление</h2></div><span class="section-id">CG / 03</span></div>
+      <div class="category-grid">
+        <button class="category-card green" data-section="contacts">
+          <span class="category-no">01</span><span class="category-icon">↗</span>
+          <h3>Контакты<br>и переходы</h3><p>Номер, WhatsApp, Telegram, email, звонки и ограничения платформы.</p>
+          <span class="arrow">OPEN →</span>
+        </button>
+        <button class="category-card red" data-section="content">
+          <span class="category-no">02</span><span class="category-icon">✦</span>
+          <h3>Контент<br>и вовлечение</h3><p>Письма, опросники, песни, фото-идеи, видео и персонализация.</p>
+          <span class="arrow">OPEN →</span>
+        </button>
+        <button class="category-card amber" data-section="money">
+          <span class="category-no">03</span><span class="category-icon">◈</span>
+          <h3>Подарки,<br>деньги и риски</h3><p>Подарки, финансовые просьбы, красные флаги и спорные сценарии.</p>
+          <span class="arrow">OPEN →</span>
+        </button>
+      </div>
+
+      <div class="section-head situations-head"><div><span class="eyebrow">// SITUATIONS</span><h2>Быстрый выбор по ситуации</h2></div></div>
+      <div class="chips" id="scenarioChips">
+        <button data-query="просит номер"><i>01</i> Просит номер</button>
+        <button data-query="telegram whatsapp"><i>02</i> Telegram / WhatsApp</button>
+        <button data-query="письмо"><i>03</i> Нужна идея для письма</button>
+        <button data-query="песня ии"><i>04</i> Персональный подарок</button>
+        <button data-query="подарки деньги"><i>05</i> Подарок / деньги</button>
+        <button data-query="18+ согласие"><i>06</i> 18+ тема</button>
+      </div>
+
+      <div class="notice cyber-frame warning">
+        <div class="notice-icon">!</div>
+        <div><strong>RISK CONTROL</strong><p>Материалы с подменой данных, ложными историями, фиктивными расходами или обходом правил отображаются только как красные флаги для внутреннего разбора.</p></div>
+      </div>
+    </section>
+
+    <section id="libraryView" class="view">
+      <div class="page-title cyber-frame slim"><div><span class="eyebrow" id="sectionEyebrow">РАЗДЕЛ</span><h1 id="sectionTitle">База знаний</h1><p id="sectionDescription"></p></div><div class="result-count" id="resultCount"></div></div>
+      <div class="toolbar"><div class="filter-pills" id="filterPills"><button class="active" data-filter="all">ALL</button><button data-filter="safe">Обычные</button><button data-filter="caution">Осторожно</button><button data-filter="blocked">Красные флаги</button></div></div>
+      <div id="cardsGrid" class="cards-grid"></div>
+      <div id="emptyState" class="empty-inline" hidden>По этому запросу ничего не найдено.</div>
+    </section>
+
+    <section id="sourcesView" class="view">
+      <div class="page-title cyber-frame slim"><div><span class="eyebrow">// ARCHIVE 04</span><h1>Исходные материалы</h1><p>Скриншоты, которые легли в основу структуры базы. Спорные практики сохранены только как источник для внутреннего разбора.</p></div><div class="result-count">28 FILES</div></div>
+      <div id="sourceGrid" class="source-grid"></div>
+    </section>
+    <section id="adminView" class="view admin-view">
+      <div class="page-title cyber-frame slim admin-titlebar">
+        <div><span class="eyebrow">// ADMIN 05</span><h1>Редактор базы</h1><p>Локальное управление карточками. Изменения сохраняются в этом браузере; для публикации экспортируй обновлённый файл.</p></div>
+        <div class="admin-status-wrap"><div class="result-count" id="adminCount">0 CARDS</div><span class="admin-local-badge" id="adminLocalBadge">LOCAL MODE</span></div>
+      </div>
+
+      <div class="admin-toolbar">
+        <div class="admin-toolbar-left">
+          <button class="admin-primary" id="adminNew">＋ Новая карточка</button>
+          <label class="admin-import">⇧ Импорт JSON<input id="adminImportInput" type="file" accept="application/json,.json" hidden></label>
+          <button id="adminExportJson">⇩ Экспорт JSON</button>
+          <button id="adminExportJs">⇩ Экспорт knowledge.js</button>
+        </div>
+        <button class="admin-danger-ghost" id="adminResetAll">Сбросить локальные изменения</button>
+      </div>
+
+      <div class="admin-layout">
+        <aside class="admin-list-panel">
+          <div class="admin-search"><span>⌕</span><input id="adminSearch" type="search" placeholder="Найти карточку…" autocomplete="off"></div>
+          <div class="admin-list-filters">
+            <button class="active" data-admin-filter="all">ALL</button><button data-admin-filter="contacts">Контакты</button><button data-admin-filter="content">Контент</button><button data-admin-filter="money">Риски</button>
+          </div>
+          <div class="admin-card-list" id="adminCardList"></div>
+        </aside>
+
+        <section class="admin-editor-panel">
+          <div class="admin-editor-empty" id="adminEditorEmpty">
+            <img src="assets/brand/cult-keeper-clean.webp" alt="CULT Keeper">
+            <div><span>// EDITOR READY</span><h2>Выбери карточку</h2><p>Или создай новую. Здесь можно менять структуру базы без ручного редактирования HTML.</p></div>
+          </div>
+
+          <form id="adminForm" class="admin-form" hidden>
+            <div class="admin-form-head">
+              <div><span class="eyebrow" id="adminFormMode">// EDIT CARD</span><h2 id="adminFormTitle">Карточка</h2></div>
+              <div class="admin-form-actions"><button type="button" id="adminHistory">История</button><button type="button" id="adminDuplicate">Дублировать</button><button type="button" id="adminResetItem">Вернуть исходную</button><button type="button" class="danger" id="adminDelete">Удалить</button></div>
+            </div>
+
+            <div class="admin-grid two">
+              <label><span>ID</span><input name="id" id="adminId" required placeholder="new-card-id"><small>Уникальный идентификатор без пробелов.</small></label>
+              <label><span>Раздел</span><select name="section"><option value="contacts">Контакты</option><option value="content">Контент</option><option value="money">Подарки и риски</option><option value="situations">Навигация</option></select></label>
+            </div>
+
+            <div class="admin-grid two">
+              <label><span>Тип</span><input name="type" placeholder="Справочник / Идея / Правила"></label>
+              <label><span>Статус</span><select name="status"><option value="safe">ACTIVE</option><option value="caution">ATTENTION</option><option value="blocked">RISK</option></select></label>
+            </div>
+            <div class="admin-grid two">
+              <label><span>Публикация</span><select name="publishState"><option value="published">PUBLISHED</option><option value="draft">DRAFT</option><option value="archived">ARCHIVED</option></select><small>Draft/Archived не видны обычным сотрудникам.</small></label>
+              <label><span>Облачный статус</span><div class="admin-cloud-field" id="adminCloudField">LOCAL MODE</div></label>
+            </div>
+
+            <label class="wide"><span>Название</span><input name="title" required placeholder="Название карточки"></label>
+            <label class="wide"><span>Подзаголовок</span><input name="subtitle" placeholder="Коротко, о чём материал"></label>
+            <label class="wide"><span>Краткое описание</span><textarea name="summary" rows="4" placeholder="Что сотрудник должен понять за 10 секунд"></textarea></label>
+            <label class="wide"><span>Когда открывать</span><input name="useWhen" placeholder="Например: когда нужен Telegram или email"></label>
+
+            <div class="admin-grid two">
+              <label><span>Теги</span><input name="tags" placeholder="telegram, контакт, переход"><small>Через запятую.</small></label>
+              <label><span>Исходники</span><input name="sources" placeholder="1, 4, 9"><small>Номера SOURCE через запятую.</small></label>
+            </div>
+
+            <div class="admin-grid two">
+              <label><span>Обновлено</span><input name="updated" type="date"></label>
+              <label class="admin-check"><input name="pinned" type="checkbox"><span>Закрепить в «Часто используемом»</span></label>
+            </div>
+
+            <label class="wide"><span>Подробные пункты</span><textarea name="details" rows="8" placeholder="Каждый пункт с новой строки"></textarea><small>Будут показаны во вкладке «Подробно».</small></label>
+
+            <div class="admin-preview-wrap">
+              <div class="admin-preview-head"><span>// LIVE PREVIEW</span><b>Как карточка будет выглядеть</b></div>
+              <div id="adminPreview"></div>
+            </div>
+
+            <div class="admin-savebar">
+              <div><span id="adminDirtyState">Нет несохранённых изменений</span><small>Сохраняется локально в браузере.</small></div>
+              <button class="admin-primary" type="submit">Сохранить карточку</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <section class="team-admin cyber-frame" id="teamAdminPanel" hidden>
+        <div class="team-admin-head"><div><span class="eyebrow">// ACCESS CONTROL</span><h2>Команда и роли</h2><p>Управление доступом CULT Group. Приглашения работают через Supabase Edge Function.</p></div><div class="team-admin-buttons"><button id="seedCloud">⇧ Загрузить стартовую базу</button><button id="refreshTeam">↻ Обновить</button></div></div>
+        <div class="invite-row"><input id="inviteEmail" type="email" placeholder="email сотрудника"><select id="inviteRole"><option value="viewer">Viewer</option><option value="editor">Editor</option><option value="admin">Admin</option></select><button class="admin-primary" id="inviteUser">Пригласить</button></div>
+        <div id="teamUsers" class="team-users"></div>
+      </section>
+      <div class="admin-publish-note cyber-frame">
+        <div class="notice-icon">☁</div><div><strong>ОБЛАЧНЫЙ РЕЖИМ</strong><p id="adminCloudNote">После подключения Supabase изменения сохраняются сразу для всей команды. Экспорт JSON и knowledge.js остаются как резервная копия.</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <aside class="keeper-drawer" id="keeperDrawer" aria-hidden="true">
+    <div class="keeper-drawer-head">
+      <div><span>// CG-AI NAV MODULE</span><h2>CULT KEEPER</h2></div>
+      <button id="keeperClose" aria-label="Закрыть">×</button>
+    </div>
+    <div class="keeper-drawer-visual">
+      <img class="keeper-clean keeper-clean--drawer" src="assets/brand/cult-keeper-clean.webp" alt="CULT Keeper" />
+      <div><b>STATUS: ACTIVE</b><span>Выбери, что нужно найти.</span></div>
+    </div>
+    <div class="keeper-actions">
+      <button data-keeper-query="просит номер"><span>01</span><b>Найти про номер</b><i>→</i></button>
+      <button data-keeper-query="telegram whatsapp email"><span>02</span><b>Найти про переход</b><i>→</i></button>
+      <button data-keeper-query="письмо контент"><span>03</span><b>Найти идею контента</b><i>→</i></button>
+      <button data-keeper-query="подарки деньги риски"><span>04</span><b>Проверить финансовый риск</b><i>→</i></button>
+      <button data-keeper-section="sources"><span>05</span><b>Открыть исходники</b><i>→</i></button>
+    </div>
+    <div class="keeper-note">CULT GROUP // INTERNAL SYSTEM<br>Keeper помогает только с навигацией по текущей базе.</div>
+  </aside>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <dialog id="detailDialog" class="detail-dialog">
+    <button class="dialog-close" id="dialogClose" aria-label="Закрыть">×</button>
+    <div id="detailContent"></div>
+  </dialog>
+
+  <dialog id="imageDialog" class="image-dialog">
+    <button class="dialog-close" id="imageClose" aria-label="Закрыть">×</button>
+    <img id="imagePreview" alt="Увеличенный исходный материал" />
+  </dialog>
+
+
+  <dialog id="commandDialog" class="command-dialog">
+    <div class="command-shell">
+      <div class="command-head">
+        <span class="command-mark">⌘</span>
+        <input id="commandInput" autocomplete="off" placeholder="Введите действие или запрос…" />
+        <kbd>ESC</kbd>
+      </div>
+      <div class="command-hint">Поиск по базе, разделам и исходникам · ↑ ↓ для выбора · Enter открыть</div>
+      <div class="command-results" id="commandResults"></div>
+    </div>
+  </dialog>
+
+
+  <div class="auth-gate" id="authGate" hidden>
+    <div class="auth-panel cyber-frame">
+      <img src="assets/brand/cult-logo.webp" alt="CULT Group" class="auth-logo">
+      <span class="eyebrow">// SECURE INTERNAL ACCESS</span>
+      <h1>Вход в CULT System</h1>
+      <p>Используй аккаунт, выданный администратором команды.</p>
+      <form id="authForm">
+        <label><span>Email</span><input id="authEmail" type="email" autocomplete="email" required></label>
+        <label><span>Пароль</span><input id="authPassword" type="password" autocomplete="current-password" required></label>
+        <button class="primary-btn" type="submit">ENTER SYSTEM</button>
+        <button class="auth-link" id="forgotPassword" type="button">Забыли пароль?</button>
+        <div class="auth-error" id="authError"></div>
+      </form>
+    </div>
+  </div>
+
+  <dialog id="historyDialog" class="history-dialog">
+    <button class="dialog-close" id="historyClose" aria-label="Закрыть">×</button>
+    <div class="history-inner"><span class="eyebrow">// VERSION HISTORY</span><h2>История изменений</h2><p>Последние версии выбранной карточки.</p><div id="historyList" class="history-list"></div></div>
+  </dialog>
+
+  <dialog id="recoveryDialog" class="account-dialog">
+    <button class="dialog-close" id="recoveryClose" aria-label="Закрыть">×</button>
+    <form id="recoveryForm" class="account-inner"><span class="eyebrow">// PASSWORD RECOVERY</span><h2>Новый пароль</h2><p>Задай новый пароль для аккаунта CULT Group.</p><label class="recovery-label"><span>Новый пароль</span><input id="recoveryPassword" type="password" minlength="8" required></label><button class="primary-btn" type="submit">Сохранить пароль</button><div class="auth-error" id="recoveryError"></div></form>
+  </dialog>
+
+  <dialog id="accountDialog" class="account-dialog">
+    <button class="dialog-close" id="accountClose" aria-label="Закрыть">×</button>
+    <div class="account-inner"><span class="eyebrow">// ACCOUNT</span><h2 id="accountName">CULT USER</h2><p id="accountEmail"></p><div class="account-role" id="accountRoleLong">VIEWER</div><button id="logoutBtn" class="admin-danger-ghost">Выйти из системы</button></div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/backend.js"></script>
+  <script src="data/knowledge.js"></script>
+  <script src="js/admin-store.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
